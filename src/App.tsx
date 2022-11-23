@@ -1,5 +1,5 @@
 import { Container, Typography } from "@mui/material";
-import { BlogPost } from "components/BlogPost";
+import { BlogPostView } from "components/BlogPostView";
 import { BlogPosts } from "components/BlogPosts";
 import { useState } from "react";
 
@@ -23,7 +23,7 @@ function App() {
         Bloggsida
       </Typography>
       {selectedBlogPost ? (
-        <BlogPost
+        <BlogPostView
           goBackCallback={() => setSelectedBlogPost(undefined)}
           blogPost={selectedBlogPost}
         />

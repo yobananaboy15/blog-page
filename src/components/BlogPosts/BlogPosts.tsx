@@ -56,7 +56,9 @@ export const BlogPosts = ({
           <Grid key={blogPost.id} item xs={12} sm={6} md={4}>
             <Card>
               <CardContent>
-                <Typography>{blogPost.title}</Typography>
+                <Typography sx={{ fontWeight: "bold" }}>
+                  {blogPost.title}
+                </Typography>
                 <Typography>{blogPost.leadParagraph}</Typography>
                 <Typography>
                   {blogPost.date.toLocaleDateString("sv-SE")}

@@ -1,12 +1,12 @@
 import { Box, Button, Typography } from "@mui/material";
-import { BlogPost as BlogPostType } from "App";
+import { BlogPost } from "App";
 
 type BlogPostProps = {
-  blogPost: BlogPostType;
+  blogPost: BlogPost;
   goBackCallback: () => void;
 };
 
-export const BlogPost = ({ blogPost, goBackCallback }: BlogPostProps) => {
+export const BlogPostView = ({ blogPost, goBackCallback }: BlogPostProps) => {
   return (
     <Box
       sx={{
@@ -22,11 +22,11 @@ export const BlogPost = ({ blogPost, goBackCallback }: BlogPostProps) => {
           {blogPost.leadParagraph}
         </Typography>
         <Typography variant="body1">{blogPost.text}</Typography>
+        <Typography variant="body2">{blogPost.author}</Typography>
+        <Typography variant="body2">{blogPost.authorEmail}</Typography>
         <Typography variant="body2">
           {blogPost.date.toLocaleDateString("sv-SE")}
         </Typography>
-        <Typography variant="body2">{blogPost.author}</Typography>
-        <Typography variant="body2">{blogPost.authorEmail}</Typography>
       </div>
     </Box>
   );
