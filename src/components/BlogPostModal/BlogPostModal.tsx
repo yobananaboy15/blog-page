@@ -60,7 +60,7 @@ export const BlogPostModal = ({
       const { id, date, ...formState } = blogPostToEdit;
       setFormState(formState);
     }
-  }, [isOpen, blogPostToEdit, setFormState]);
+  }, [isOpen, blogPostToEdit]);
 
   return (
     <Dialog open={isOpen} onClose={onClose}>
