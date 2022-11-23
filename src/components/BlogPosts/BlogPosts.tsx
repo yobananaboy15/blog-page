@@ -47,7 +47,7 @@ export const BlogPosts = ({
       <Button
         variant="contained"
         onClick={() => setModalIsOpen(true)}
-        sx={{ mb: 2, mt: 2 }}
+        sx={{ mb: 2 }}
       >
         Skapa blogginlägg
       </Button>
