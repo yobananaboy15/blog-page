@@ -33,16 +33,6 @@ export const BlogPostModal = ({
     authorEmail: "",
   });
 
-  const resetState = () => {
-    setFormState({
-      title: "",
-      leadParagraph: "",
-      text: "",
-      author: "",
-      authorEmail: "",
-    });
-  };
-
   const handleChange = <V, K extends keyof FormState>(
     value: FormState[K],
     key: K
@@ -69,7 +59,7 @@ export const BlogPostModal = ({
       const { id, date, ...formState } = blogPostToEdit;
       setFormState(formState);
     }
-  });
+  }, [isOpen, blogPostToEdit, setFormState]);
 
   return (
     <Dialog open={isOpen} onClose={onClose}>
