@@ -56,7 +56,7 @@ export const BlogPostModal = ({
 
   useEffect(() => {
     if (isOpen && blogPostToEdit) {
-      //Destructure only the part needed for the form
+      //Destructure the part needed for the form
       const { id, date, ...formState } = blogPostToEdit;
       setFormState(formState);
     }
