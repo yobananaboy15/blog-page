@@ -63,6 +63,14 @@ export const BlogPostModal = ({
     onClose();
   };
 
+  useEffect(() => {
+    if (isOpen && blogPostToEdit) {
+      //Destructure only the part needed for the form
+      const { id, date, ...formState } = blogPostToEdit;
+      setFormState(formState);
+    }
+  });
+
   return (
     <Dialog open={isOpen} onClose={onClose}>
       <DialogTitle>{`${
