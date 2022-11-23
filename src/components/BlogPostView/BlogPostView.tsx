@@ -12,11 +12,11 @@ export const BlogPostView = ({ blogPost, goBackCallback }: BlogPostProps) => {
       sx={{
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       <Button onClick={goBackCallback}>Gå tillbaka</Button>
-      <div>
+      <Box sx={{ maxWidth: 400, overflowWrap: "break-word" }}>
         <Typography variant="h3">{blogPost.title}</Typography>
         <Typography sx={{ fontWeight: "bold" }} variant="body1">
           {blogPost.leadParagraph}
@@ -27,7 +27,7 @@ export const BlogPostView = ({ blogPost, goBackCallback }: BlogPostProps) => {
         <Typography variant="body2">
           {blogPost.date.toLocaleDateString("sv-SE")}
         </Typography>
-      </div>
+      </Box>
     </Box>
   );
 };

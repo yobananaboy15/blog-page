@@ -55,7 +55,7 @@ export const BlogPosts = ({
         {blogPosts.map((blogPost) => (
           <Grid key={blogPost.id} item xs={12} sm={6} md={4}>
             <Card>
-              <CardContent>
+              <CardContent sx={{ overflowWrap: "break-word" }}>
                 <Typography sx={{ fontWeight: "bold" }}>
                   {blogPost.title}
                 </Typography>
