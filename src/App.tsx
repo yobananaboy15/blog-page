@@ -1,3 +1,7 @@
+import { Container, Typography } from "@mui/material";
+import { BlogPosts } from "components/BlogPosts";
+import { useState } from "react";
+
 export type BlogPost = {
   id: string;
   title: string;
@@ -9,7 +13,25 @@ export type BlogPost = {
 };
 
 function App() {
-  return <div></div>;
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
+  const [selectedBlogPost, setSelectedBlogPost] = useState<BlogPost>();
+
+  return (
+    <Container>
+      <Typography variant="h2" sx={{ textAlign: "center" }}>
+        Bloggsida
+      </Typography>
+      {selectedBlogPost ? (
+        <div>Blogginlägg</div>
+      ) : (
+        <BlogPosts
+          setSelectedBlogPost={setSelectedBlogPost}
+          setBlogPosts={setBlogPosts}
+          blogPosts={blogPosts}
+        />
+      )}
+    </Container>
+  );
 }
 
 export default App;
