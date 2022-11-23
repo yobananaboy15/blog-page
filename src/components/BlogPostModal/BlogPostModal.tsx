@@ -9,6 +9,7 @@ import {
 import { BlogPost } from "App";
 import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { validateEmail } from "utils/validateEmail";
 
 type BlogPostModalProps = {
   isOpen: boolean;
@@ -33,7 +34,7 @@ export const BlogPostModal = ({
     authorEmail: "",
   });
 
-  const handleChange = <V, K extends keyof FormState>(
+  const handleChange = <K extends keyof FormState>(
     value: FormState[K],
     key: K
   ) => {
@@ -41,7 +42,7 @@ export const BlogPostModal = ({
   };
 
   const onSubmit = () => {
-    if (formState.authorEmail === "hej") {
+    if (!validateEmail(formState.authorEmail)) {
       return;
     }
     if (blogPostToEdit) {
@@ -90,6 +91,8 @@ export const BlogPostModal = ({
           rows={2}
         />
         <TextField
+          value={formState.text}
+          onChange={(e) => handleChange(e.target.value, "text")}
           margin="dense"
           fullWidth
           name="text"
@@ -99,6 +102,8 @@ export const BlogPostModal = ({
           rows={3}
         />
         <TextField
+          value={formState.author}
+          onChange={(e) => handleChange(e.target.value, "author")}
           margin="dense"
           fullWidth
           name="author"
@@ -107,6 +112,8 @@ export const BlogPostModal = ({
           inputProps={{ maxLength: 40 }}
         />
         <TextField
+          value={formState.authorEmail}
+          onChange={(e) => handleChange(e.target.value, "authorEmail")}
           margin="dense"
           fullWidth
           name="email"
@@ -119,7 +126,7 @@ export const BlogPostModal = ({
           Avbryt
         </Button>
         <Button variant="contained" color="primary" onClick={onSubmit}>
-          Skapa
+          {blogPostToEdit ? "Uppdatera" : "Skapa"}
         </Button>
       </DialogActions>
     </Dialog>
