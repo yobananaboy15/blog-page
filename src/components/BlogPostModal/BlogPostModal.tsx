@@ -74,7 +74,7 @@ export const BlogPostModal = ({
           margin="dense"
           fullWidth
           name="title"
-          label="Titel"
+          label="Rubrik"
           type="text"
           inputProps={{ maxLength: 50 }}
         />
